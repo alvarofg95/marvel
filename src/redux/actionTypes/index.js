@@ -1,0 +1,5 @@
+export default {
+  SET_COMICS_LIST: "SET_COMICS_LIST",
+  SET_FILTER: "SET_FILTER",
+  SET_PAGE: "SET_PAGE",
+};
