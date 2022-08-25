@@ -16,7 +16,6 @@ const initialState = {
 const comics = (state = initialState, action) => {
   switch (action.type) {
     case TYPES.SET_COMICS_LIST:
-      console.log({ action });
       return {
         ...state,
         list: action.value.results,

@@ -9,15 +9,18 @@ const Characters = ({ characters = [], handleShowCharacters }) => (
       Show characters <img src={arrowDown} alt="show characters" />
     </span>
     <div className="characters">
-      {characters.map((item, index) => (
-        <img
-          key={`${item.name}_${index}`}
-          width={100}
-          alt={item.name}
-          src={getImgUrl(item.thumbnail)}
-          title={item.name}
-        />
-      ))}
+      {characters.map((item, index) => {
+        const { name, thumbnail } = item;
+        return (
+          <img
+            key={`${name}_${index}`}
+            width={100}
+            alt={name}
+            src={getImgUrl(thumbnail)}
+            title={name}
+          />
+        );
+      })}
     </div>
   </>
 );

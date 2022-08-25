@@ -16,7 +16,7 @@ const Home = ({
   page,
   total,
   load,
-  error = true,
+  error,
 }) => {
   const [loading, setLoading] = useState(false);
 

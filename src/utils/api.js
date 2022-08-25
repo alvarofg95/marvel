@@ -39,6 +39,9 @@ export const apiCall = async (url, filter) => {
       return res.json();
     })
     .then(({ data }) => {
+      if (!data) {
+        throw new Error();
+      }
       return data;
     })
     .catch(() => {

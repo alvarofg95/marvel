@@ -1,4 +1,5 @@
 import Characters from "components/characters";
+import ErrorPage from "components/errorPage";
 import Loading from "components/loading";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -10,11 +11,16 @@ const Comic = () => {
   const { id } = useParams();
   const [comicInfo, setComicInfo] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     apiCall(`${GET_COMIC_INFO}${id}`).then((res) => {
-      setComicInfo(res.results[0]);
+      if (res.error) {
+        setError(true);
+      } else {
+        setComicInfo(res.results[0]);
+      }
       setLoading(false);
     });
   }, [id]);
@@ -25,6 +31,10 @@ const Comic = () => {
     });
   };
 
+  if (error) {
+    return <ErrorPage />;
+  }
+
   const {
     title,
     images,
@@ -34,7 +44,7 @@ const Comic = () => {
     parsedCharacters = [],
     characters = {},
   } = comicInfo;
-  console.log({ pageCount });
+
   const onsaleDate = dates.find((d) => d.type === "onsaleDate");
   const mustShowCharacters = characters.returned > 0;
 
