@@ -7,20 +7,20 @@
   display: inline-flex;
   margin-top: 2rem;
   margin-bottom: 1rem;
+
+  img {
+    height: 25px;
+  }
 }
 
-.showCharacters > img {
-  height: 25px;
-}
+.characters {
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: fill;
+  }
 
-.characters > img {
-  width: 100px;
-  height: 100px;
-  object-fit: fill;
-}
-
-@media only screen and (max-width: 740px) {
-  .characters {
+  @media only screen and (max-width: 740px) {
     text-align: center;
   }
 }

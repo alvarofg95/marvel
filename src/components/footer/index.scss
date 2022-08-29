@@ -1,6 +1,8 @@
+@import 'variables';
+
 .footer {
   height: 3rem;
-  background-color: #e2001a;
+  background-color: $redBackground;
   text-align: left;
   display: flex;
   align-items: center;

@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { apiCall, GET_COMIC_CHARACTERS, GET_COMIC_INFO } from "utils/api";
 import { dateParser } from "utils/utils";
-import "./index.css";
+import "./index.scss";
 
 const Comic = () => {
   const { id } = useParams();

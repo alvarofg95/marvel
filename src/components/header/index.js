@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import marvelImage from "assets/marvel-logo.png";
 import leftArrow from "assets/left-arrow.png";
-import "./index.css";
+import "./index.scss";
 
 const Header = () => {
   const { pathname } = useLocation();

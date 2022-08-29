@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getImgUrl } from 'utils/utils';
 import arrowDown from 'assets/down.png';
-import './index.css';
+import './index.scss';
 
 const Characters = ({ characters = [], handleShowCharacters }) => (
   <>

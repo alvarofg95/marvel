@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import { applyMiddleware, compose, legacy_createStore } from "redux";
 import thunk from "redux-thunk";
 import appReducers from "redux/reducers/index";
-import "./index.css";
+import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 

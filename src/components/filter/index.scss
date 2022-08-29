@@ -1,0 +1,61 @@
+@import 'variables';
+
+.filterContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+
+  @media only screen and (max-width: 740px) {
+    display: block;
+    text-align: center;
+  }
+
+  .searchInput {
+    width: 300px;
+    padding: 0 10px 0 10px;
+    font-size: 17px;
+    font-weight: bold;
+    height: 30px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+  }
+
+  .sortButton {
+    background: $fontColor;
+    padding: 5px;
+    border-radius: 6px;
+    height: 20px;
+  }
+
+  .orderBy {
+    select {
+      width: 120px;
+      padding: 5px;
+      border-radius: 6px;
+      margin-left: 8px;
+      height: 30px;
+      outline: none;
+    }
+
+    @media only screen and (max-width: 740px) {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .sort {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-left: 8px;
+    }
+
+    @media only screen and (max-width: 740px) {
+      margin: 0 auto;
+      width: fit-content;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import 'variables';
+
+.comicsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .comic {
+    width: 200px;
+    display: inline-grid;
+    justify-content: center;
+    margin: 10px;
+
+    .comicName {
+      text-align: center;
+      background: #ffffff1a;
+      border-bottom-right-radius: 15px;
+      padding: 7px;
+      height: 100px;
+      text-transform: uppercase;
+      color: $fontColor;
+    }
+
+    img {
+      margin: 0 auto;
+      height: 300px;
+      object-fit: cover;
+
+      &.noImage {
+        object-fit: fill;
+      }
+    }
+
+    &:hover {
+      opacity: 0.5;
+      background-color: $redBackground;
+      border-bottom-right-radius: 15px;
+    }
+  }
+}

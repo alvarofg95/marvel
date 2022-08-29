@@ -1,0 +1,19 @@
+.comicInfo {
+  display: flex;
+
+  img {
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .descriptionContainer {
+    margin: 0 auto 1rem auto;
+    padding: 21px;
+    width: 75%;
+  }
+
+  @media only screen and (max-width: 740px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

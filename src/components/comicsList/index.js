@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getImgUrl } from 'utils/utils';
-import './index.css';
+import './index.scss';
 
 const getImgClassName = (url) => {
   return url.indexOf('image_not_available') > -1 ? 'noImage' : null;

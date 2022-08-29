@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ascendingLogo from 'assets/ascending.png';
 import descendingLogo from 'assets/descending.png';
 import { actionSetFilter } from 'redux/actions';
-import './index.css';
+import './index.scss';
 
 const Filter = ({ filter, setFilter }) => {
   const { orderBy, sort, titleStartsWith } = filter;
