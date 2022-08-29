@@ -1,7 +1,8 @@
-import React from "react";
-import { getImgUrl } from "utils/utils";
-import arrowDown from "assets/down.png";
-import "./index.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { getImgUrl } from 'utils/utils';
+import arrowDown from 'assets/down.png';
+import './index.css';
 
 const Characters = ({ characters = [], handleShowCharacters }) => (
   <>
@@ -24,5 +25,18 @@ const Characters = ({ characters = [], handleShowCharacters }) => (
     </div>
   </>
 );
+
+Characters.propTypes = {
+  characters: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      thumbnail: PropTypes.shape({
+        path: PropTypes.string,
+        extension: PropTypes.string,
+      }),
+    })
+  ),
+  handleShowCharacters: PropTypes.func.isRequired,
+};
 
 export default Characters;

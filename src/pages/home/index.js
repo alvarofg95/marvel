@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import Comics from "components/comicsList";
-import { apiCall, GET_COMICS } from "utils/api";
-import Filter from "components/filter";
-import { actionSetComicsList, actionSetPage } from "redux/actions";
-import Pagination from "components/pagination";
-import Loading from "components/loading";
-import ErrorPage from "components/errorPage";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Comics from 'components/comicsList';
+import { apiCall, GET_COMICS } from 'utils/api';
+import Filter from 'components/filter';
+import { actionSetComicsList, actionSetPage } from 'redux/actions';
+import Pagination from 'components/pagination';
+import Loading from 'components/loading';
+import ErrorPage from 'components/errorPage';
 
 const Home = ({
   setComicsList,
@@ -77,6 +78,31 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actionSetPage(page));
     },
   };
+};
+
+Home.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      thumbnail: PropTypes.shape({
+        path: PropTypes.string,
+        extension: PropTypes.string,
+      }),
+      title: PropTypes.string,
+    })
+  ),
+  filter: PropTypes.shape({
+    orderBy: PropTypes.string,
+    titleStartsWith: PropTypes.string,
+    offset: PropTypes.number,
+    format: PropTypes.string,
+  }),
+  page: PropTypes.number,
+  total: PropTypes.number,
+  load: PropTypes.bool,
+  error: PropTypes.bool,
+  setPage: PropTypes.func.isRequired,
+  setComicsList: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,19 +1,20 @@
-import React from "react";
-import { connect } from "react-redux";
-import ascendingLogo from "assets/ascending.png";
-import descendingLogo from "assets/descending.png";
-import { actionSetFilter } from "redux/actions";
-import "./index.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import ascendingLogo from 'assets/ascending.png';
+import descendingLogo from 'assets/descending.png';
+import { actionSetFilter } from 'redux/actions';
+import './index.css';
 
 const Filter = ({ filter, setFilter }) => {
   const { orderBy, sort, titleStartsWith } = filter;
 
   const onChangeInput = (input = {}, key) => {
     let { target: { value } = {} } = input;
-    if (key === "sort") {
+    if (key === 'sort') {
       const oppositeSorter = {
-        ascending: "descending",
-        descending: "ascending",
+        ascending: 'descending',
+        descending: 'ascending',
       };
       value = oppositeSorter[sort];
     }
@@ -25,14 +26,14 @@ const Filter = ({ filter, setFilter }) => {
       <input
         type="text"
         placeholder="Search"
-        onChange={(input) => onChangeInput(input, "titleStartsWith")}
+        onChange={(input) => onChangeInput(input, 'titleStartsWith')}
         defaultValue={titleStartsWith}
         className="searchInput"
       />
       <div className="orderBy">
         <span>ORDER BY</span>
         <select
-          onChange={(input) => onChangeInput(input, "orderBy")}
+          onChange={(input) => onChangeInput(input, 'orderBy')}
           value={orderBy}
         >
           <option value="title">TITLE</option>
@@ -43,8 +44,8 @@ const Filter = ({ filter, setFilter }) => {
         <span>SORT</span>
         <img
           className="sortButton"
-          onClick={() => onChangeInput({}, "sort")}
-          src={sort === "ascending" ? descendingLogo : ascendingLogo}
+          onClick={() => onChangeInput({}, 'sort')}
+          src={sort === 'ascending' ? descendingLogo : ascendingLogo}
           alt="sort"
         />
       </div>
@@ -64,6 +65,15 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actionSetFilter(filter));
     },
   };
+};
+
+Filter.propTypes = {
+  filter: PropTypes.shape({
+    orderBy: PropTypes.string,
+    sort: PropTypes.string,
+    titleStartsWith: PropTypes.string,
+  }),
+  setFilter: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
